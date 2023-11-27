@@ -1,10 +1,10 @@
-import { Heading } from '@chakra-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
 import React from 'react'
 
 export default function Header() {
   return (
-    <>
-    <Heading>TO DO LIST</Heading>
-    </>
+    <Box textAlign="center">
+    <Heading as="h1" size="xl">TO DO LIST</Heading>
+    </Box>
   )
 }

@@ -1,15 +1,15 @@
-import "./App.css";
 import Header from "./Header";
 import AddingTasks from "./AddingTasks";
 import List from "./List";
-import { Box } from "@chakra-ui/react";
-import Woman from "./assets/8686.jpg";
+import { Box, Container } from "@chakra-ui/react";
+import Flower from "./assets/rm428-0025.jpg";
 
 function App() {
   
 
   return (
-      <Box bgImage={Woman} h="90vh" bgPosition="center" bgSize="cover" bgRepeat="no-repeat">
+    
+      <Box bgImage={Flower} h="100vh" bgPosition="center" bgSize="cover" bgRepeat="no-repeat"display="flex">
         <Header />
         <AddingTasks />
         <List />
