@@ -8,12 +8,13 @@ function App() {
   
 
   return (
-    
-      <Box bgImage={Flower} h="100vh" bgPosition="center" bgSize="cover" bgRepeat="no-repeat"display="flex">
+    <>
+      <Box bgImage={Flower} h="100vh" bgPosition="center" bgSize="cover" bgRepeat="no-repeat">
         <Header />
         <AddingTasks />
         <List />
-      </Box>
+     </Box>
+      </>
   );
 }
 
