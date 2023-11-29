@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { useFormik } from "formik";
 import {Center, Box, Flex, Input, Select, Button } from "@chakra-ui/react";
 
-export default function AddingTasks() {
+export default function AddingTasks({setTask, tasks}) {
   const randomId = () => self.crypto.randomUUID();
   //aca se guardan los valores de los input/
-  const formik = useFormik({
+  const formik = useFormik ({
     initialValues: {
       id: randomId() ,
       tarea: "" ,
      completo: false
+      id: crypto.randomUUID
     },
 
     validate: (values) => {
@@ -23,7 +24,9 @@ export default function AddingTasks() {
       return errors;
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      localStorage.setItem("tasks", JSON.stringify([... tasks, values]))
+      setTask([... tasks, values]);
+
     },
   });
 
