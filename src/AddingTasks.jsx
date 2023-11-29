@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
-import { Box, Flex, Input, Select, Button } from "@chakra-ui/react";
+import {Center, Box, Flex, Input, Select, Button } from "@chakra-ui/react";
 
 export default function AddingTasks() {
-
-
 
   const formik = useFormik({
     initialValues: {
@@ -52,11 +50,13 @@ export default function AddingTasks() {
             <option value="Incompletas">Incompletas</option>
           </Select>
         </Box>
+        
       </Flex>
-
+    <Center>
       <Button type="submit" colorScheme="teal" variant="solid" w="150px">
         Send
       </Button>
+       </Center>
     </form>
   );
 }
