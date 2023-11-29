@@ -1,6 +1,7 @@
 import React from "react";
 import { ButtonGroup, Container, Button, Text, Flex } from "@chakra-ui/react";
 
+
 export default function List() {
   return (
     <Container>
@@ -21,6 +22,7 @@ export default function List() {
           </Button>
           <Button colorScheme="teal" variant="solid" w="50px">
             Delete
+      
           </Button>
         </ButtonGroup>
       </Flex>

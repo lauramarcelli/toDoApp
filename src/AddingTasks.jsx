@@ -3,10 +3,13 @@ import { useFormik } from "formik";
 import {Center, Box, Flex, Input, Select, Button } from "@chakra-ui/react";
 
 export default function AddingTasks() {
-
+  const randomId = () => self.crypto.randomUUID();
+  //aca se guardan los valores de los input/
   const formik = useFormik({
     initialValues: {
-      title: "",
+      id: randomId() ,
+      tarea: "" ,
+     completo: false
     },
 
     validate: (values) => {
