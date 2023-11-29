@@ -7,9 +7,7 @@ export default function AddingTasks({setTask, tasks}) {
   //aca se guardan los valores de los input/
   const formik = useFormik ({
     initialValues: {
-      id: randomId() ,
-      tarea: "" ,
-     completo: false
+      title: "",
       id: crypto.randomUUID
     },
 
