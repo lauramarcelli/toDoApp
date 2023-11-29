@@ -8,6 +8,7 @@ export default function AddingTasks() {
     initialValues: {
       title: "",
     },
+
     validate: (values) => {
       const errors = {};
       if (!values.title) {

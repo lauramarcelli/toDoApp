@@ -8,8 +8,16 @@ import { useState } from "react"
 
 function App() {
 
+  const randomId = () => self.crypto.randomUUID();
 
-const [task, setTask] = useState([]) 
+const [task, setTask] = useState([
+  {
+    id: randomId() ,
+  tarea: "" ,
+ completo: false
+}
+]) 
+console.log(task)
 
   return (
     <>
