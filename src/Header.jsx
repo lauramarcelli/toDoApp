@@ -7,8 +7,8 @@ export default function Header() {
     // <Heading as="h1" size="xl">TO DO LIST</Heading>
     // </Box>
 
-<Center bg='pink' h='100px' color='white'>
-<Heading> TO DO LIST </Heading> 
+<Center  h='100px' color='white'>
+<Heading color="#6e8696"> TO DO LIST </Heading> 
 </Center>
 
 

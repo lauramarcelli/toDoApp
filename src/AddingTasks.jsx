@@ -34,7 +34,7 @@ export default function AddingTasks({setTask, tasks}) {
       style={{ display: "flex", flexDirection: "column" }}
     >
       <Flex gap="20" justifyContent="center">
-        <Box bg="white" w="40%" h="100px" m="6" p="4">
+        <Box  w="40%" h="100px" m="6" p="4">
           <label htmlFor="title">Tarea</label>
           <Input
             placeholder="Ingresa una tarea"
@@ -47,7 +47,7 @@ export default function AddingTasks({setTask, tasks}) {
           {formik.errors.title ? <div>{formik.errors.title}</div> : null}
         </Box>
 
-        <Box bg="white" w="40%" h="100px" m="6" p="4">
+        <Box  w="40%" h="100px" m="6" p="4">
           <h1>Seleccionar</h1>
           <Select>
             <option value="Todas">Todas</option>
@@ -58,7 +58,7 @@ export default function AddingTasks({setTask, tasks}) {
         
       </Flex>
     <Center>
-      <Button type="submit" colorScheme="teal" variant="solid" w="150px">
+      <Button type="submit" bg="#6e8696" variant="solid" w="150px">
         Send
       </Button>
        </Center>

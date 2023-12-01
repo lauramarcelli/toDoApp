@@ -10,7 +10,7 @@ export default function List({tasks}) {
         <Container >
       <Flex
         mt="2"
-        bg="pink"
+        bg="#fae6d9"
         color="black"
         w="500px"
         justifyContent="space-around"
@@ -20,10 +20,10 @@ export default function List({tasks}) {
           {task.title}
         </Text>
         <ButtonGroup>
-          <Button colorScheme="teal" variant="solid" w="50px">
+          <Button bg="#a6bfb2" variant="solid" w="50px">
             Hecho
           </Button>
-          <Button colorScheme="teal" variant="solid" w="50px">
+          <Button bg="#c79b95" variant="solid" w="50px">
             Delete    
           </Button>
         </ButtonGroup>
