@@ -8,7 +8,8 @@ export default function AddingTasks({setTask, tasks}) {
   const formik = useFormik ({
     initialValues: {
       title: "",
-      id: crypto.randomUUID
+      id: randomId(),
+      estado: false
     },
 
     validate: (values) => {
@@ -24,8 +25,9 @@ export default function AddingTasks({setTask, tasks}) {
     onSubmit: (values) => {
       localStorage.setItem("tasks", JSON.stringify([... tasks, values]))
       setTask([... tasks, values]);
-
+        
     },
+ 
   });
 
   return (
@@ -36,7 +38,7 @@ export default function AddingTasks({setTask, tasks}) {
       <Flex gap="20" justifyContent="center">
         <Box bg="white" w="40%" h="100px" m="6" p="4">
           <label htmlFor="title">Tarea</label>
-          <Input
+          <Input        
             placeholder="Ingresa una tarea"
             id="title"
             name="title"

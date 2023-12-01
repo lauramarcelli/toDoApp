@@ -2,12 +2,13 @@ import React from "react";
 import { ButtonGroup, Container, Button, Text, Flex } from "@chakra-ui/react";
 
 
-export default function List({tasks}) {
-  console.log(tasks)
+export default function List({tasks,deleteTask,taskCompleted}) {
+
   return (
     tasks.map((task) => {
+     const {id, title,estado} = task
       return (
-        <Container >
+        <Container>
       <Flex
         mt="2"
         bg="pink"
@@ -16,14 +17,12 @@ export default function List({tasks}) {
         justifyContent="space-around"
         alignItems="center"
       >
-        <Text m="2" fontSize="xl">
-          {task.title}
-        </Text>
+        <Text m="2" fontSize="xl">{title} </Text>
         <ButtonGroup>
-          <Button colorScheme="teal" variant="solid" w="50px">
+          <Button onClick={() => taskCompleted(id,title,estado)} colorScheme="teal" variant="solid" w="50px">
             Hecho
           </Button>
-          <Button colorScheme="teal" variant="solid" w="50px">
+          <Button onClick={() => deleteTask(id)} colorScheme="teal" variant="solid" w="50px">
             Delete    
           </Button>
         </ButtonGroup>
@@ -33,4 +32,5 @@ export default function List({tasks}) {
     })
   
   );
+ 
 }
