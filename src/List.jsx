@@ -1,6 +1,6 @@
 import React from "react";
-import { ButtonGroup, Container, Button, Text, Flex } from "@chakra-ui/react";
-
+import { IconButton, ButtonGroup, Container, Button, Text, Flex } from "@chakra-ui/react";
+import {DeleteIcon, CheckIcon } from '@chakra-ui/icons'
 
 export default function List({tasks,deleteTask,taskCompleted}) {
 
@@ -19,18 +19,14 @@ export default function List({tasks,deleteTask,taskCompleted}) {
       >
         <Text m="2" fontSize="xl">{title} </Text>
         <ButtonGroup>
-          <Button onClick={() => taskCompleted(id,title,estado)} colorScheme="teal" variant="solid" w="50px">
-            Hecho
-          </Button>
-          <Button onClick={() => deleteTask(id)} colorScheme="teal" variant="solid" w="50px">
-            Delete    
-          </Button>
+          <IconButton colorScheme='blue' aria-label='Search database' icon={<CheckIcon/>} onClick={() => taskCompleted(id)}/>
+          <IconButton colorScheme='blue' aria-label='Search database' icon={<DeleteIcon/>} onClick={() => deleteTask(id)}/>
         </ButtonGroup>
       </Flex>
     </Container>
-      )
+      ) 
     })
+
+  ) 
   
-  );
- 
 }
