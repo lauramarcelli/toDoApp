@@ -1,14 +1,15 @@
 import React from "react";
 import { useFormik } from "formik";
-import {Center, Box, Flex, Input, Select, Button } from "@chakra-ui/react";
+import { Center, Box, Flex, Input, Select, Button } from "@chakra-ui/react";
 
-export default function AddingTasks({setTask, tasks}) {
+export default function AddingTasks({ setTask, tasks }) {
   const randomId = () => self.crypto.randomUUID();
   //aca se guardan los valores de los input/
-  const formik = useFormik ({
+  const formik = useFormik({
     initialValues: {
       title: "",
-      id: crypto.randomUUID
+      id: randomId(),
+      estado: false,
     },
 
     validate: (values) => {
@@ -22,9 +23,8 @@ export default function AddingTasks({setTask, tasks}) {
       return errors;
     },
     onSubmit: (values) => {
-      localStorage.setItem("tasks", JSON.stringify([... tasks, values]))
-      setTask([... tasks, values]);
-
+      localStorage.setItem("tasks", JSON.stringify([...tasks, values]));
+      setTask([...tasks, values]);
     },
   });
 
@@ -34,9 +34,12 @@ export default function AddingTasks({setTask, tasks}) {
       style={{ display: "flex", flexDirection: "column" }}
     >
       <Flex gap="20" justifyContent="center">
-        <Box  w="40%" h="100px" m="6" p="4">
+        <Box w="40%" h="100px" m="4" p="4">
           <label htmlFor="title">Tarea</label>
           <Input
+            bg="#fafafa"
+            border="2px"
+            borderColor="#cfb5a9"
             placeholder="Ingresa una tarea"
             id="title"
             name="title"
@@ -47,21 +50,25 @@ export default function AddingTasks({setTask, tasks}) {
           {formik.errors.title ? <div>{formik.errors.title}</div> : null}
         </Box>
 
-        <Box  w="40%" h="100px" m="6" p="4">
+        <Box w="40%" h="100px" m="4" p="4">
           <h1>Seleccionar</h1>
-          <Select>
+          <Select
+            bg="#fafafa"
+            border="2px"
+            borderColor="#cfb5a9"
+            placeholder="Ingresa una tarea"
+          >
             <option value="Todas">Todas</option>
             <option value="Completas">Completas</option>
             <option value="Incompletas">Incompletas</option>
           </Select>
         </Box>
-        
       </Flex>
-    <Center>
-      <Button type="submit" bg="#6e8696" variant="solid" w="150px">
-        Send
-      </Button>
-       </Center>
+      <Center>
+        <Button mb="6" type="submit" bg="#cfb5a9" variant="solid" w="150px">
+          Send
+        </Button>
+      </Center>
     </form>
   );
 }

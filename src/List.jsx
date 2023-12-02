@@ -1,36 +1,37 @@
 import React from "react";
-import { ButtonGroup, Container, Button, Text, Flex } from "@chakra-ui/react";
+import { IconButton, ButtonGroup, Container, Button, Text, Flex, Circle } from "@chakra-ui/react";
+import {DeleteIcon, CheckIcon } from '@chakra-ui/icons'
 
+export default function List({tasks,deleteTask,taskCompleted}) {
 
-export default function List({tasks}) {
-  console.log(tasks)
   return (
     tasks.map((task) => {
+     const {id, title,estado} = task
       return (
-        <Container >
+        <Container>
       <Flex
+      borderRadius="8"
+      border='2px' borderColor='#cfb5a9'        
+      placeholder="Ingresa una tarea"
+      p="1"
         mt="2"
-        bg="#fae6d9"
+        mb="2"
+        bg="#fafafa"
         color="black"
         w="500px"
         justifyContent="space-around"
         alignItems="center"
       >
-        <Text m="2" fontSize="xl">
-          {task.title}
-        </Text>
+        <Text m="2" fontSize="lg">{title} </Text>
         <ButtonGroup>
-          <Button bg="#a6bfb2" variant="solid" w="50px">
-            Hecho
-          </Button>
-          <Button bg="#c79b95" variant="solid" w="50px">
-            Delete    
-          </Button>
+          <IconButton border='2px' borderColor='#cfb5a9' aria-label='Search database' icon={<CheckIcon/>} onClick={() => taskCompleted(id)}/>
+          <IconButton border='2px' borderColor='#cfb5a9' color='#6e8696' aria-label='Search database' icon={<DeleteIcon/>} onClick={() => deleteTask(id)}/>
         </ButtonGroup>
       </Flex>
     </Container>
-      )
+      ) 
     })
+
+  ) 
   
-  );
 }
