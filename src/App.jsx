@@ -6,12 +6,7 @@ import Flower from "./assets/rm428-0025.jpg";
 import { useState } from "react";
 import { PhoneIcon, AddIcon, WarningIcon } from "@chakra-ui/icons";
 
-
-
 function App() {
-
- 
-
   const [tasks, setTask] = useState(
     JSON.parse(localStorage.getItem("tasks")) || ""
   );
@@ -28,8 +23,9 @@ function App() {
 
   console.log(tasks);
 
-  const taskCompleted = (id, title, estado) => {
-    console.log(estado);
+  const taskCompleted = (id, title, state) => {
+    
+    console.log(state);
   };
 
   const deleteTask = (id) => {
@@ -47,10 +43,15 @@ function App() {
         bgPosition="center"
         bgSize="cover"
         bgRepeat="no-repeat"
-        position='relative' 
+        position="relative"
       >
         <Header />
-        <AbsoluteCenter borderRadius="8"  padding="10px" axis='both' bg="#eddad1">
+        <AbsoluteCenter
+          borderRadius="8"
+          padding="10px"
+          axis="both"
+          bg="#eddad1"
+        >
           <AddingTasks setTask={setTask} tasks={tasks} />
           <List
             tasks={tasks}
@@ -63,6 +64,5 @@ function App() {
     </>
   );
 }
-
 
 export default App;

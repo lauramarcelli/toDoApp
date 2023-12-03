@@ -9,7 +9,7 @@ export default function AddingTasks({ setTask, tasks }) {
     initialValues: {
       title: "",
       id: randomId(),
-      estado: false,
+      state: false,
     },
 
     validate: (values) => {
