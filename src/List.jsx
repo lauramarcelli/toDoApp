@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+
 import {
   IconButton,
   ButtonGroup,
@@ -19,6 +20,14 @@ export default function List({ tasks, deleteTask, taskCompleted }) {
       setIsIconActive(!isIconActive);
     };
 
+    const stateTask = () =>{
+     if (state = true){
+      <Text as='s'>{title}</Text>
+     } else if(state = false){
+<Text as='del'>'${title}'</Text>
+     }
+    }
+
     return (
       <Container>
         <Flex
@@ -37,6 +46,7 @@ export default function List({ tasks, deleteTask, taskCompleted }) {
         >
           <Text m="2" fontSize="lg">
             {title}{" "}
+
           </Text>
           <ButtonGroup>
             <IconButton
