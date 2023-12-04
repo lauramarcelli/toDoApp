@@ -1,6 +1,7 @@
 import Header from "./Header";
 import AddingTasks from "./AddingTasks";
 import List from "./List";
+import Task from "./Task";
 import { Box, Text, Center, Circle, AbsoluteCenter } from "@chakra-ui/react";
 import Flower from "./assets/rm428-0025.jpg";
 import { useState } from "react";
