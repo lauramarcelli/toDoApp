@@ -1,15 +1,15 @@
 import Header from "./Header";
 import AddingTasks from "./AddingTasks";
-import List from "./List";
 import Task from "./Task";
-import { Box, Text, Center, Circle, AbsoluteCenter } from "@chakra-ui/react";
+import List from "./ListOfTasks";
+import { Box, AbsoluteCenter } from "@chakra-ui/react";
 import Flower from "./assets/rm428-0025.jpg";
 import { useState } from "react";
-import { PhoneIcon, AddIcon, WarningIcon } from "@chakra-ui/icons";
+
 
 function App() {
   const [tasks, setTask] = useState(
-    JSON.parse(localStorage.getItem("tasks")) || ""
+    JSON.parse(localStorage.getItem("tasks")) || []
   );
 
   const onSubmit = (title, e) => {
@@ -23,11 +23,6 @@ function App() {
   };
 
   console.log(tasks);
-
-  const taskCompleted = (id, title, state) => {
-    
-    console.log(state);
-  };
 
   const deleteTask = (id) => {
     console.log(id);

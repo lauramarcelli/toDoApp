@@ -13,9 +13,9 @@ import {
 export default function Task({ tasks, deleteTask, taskCompleted }) {
   const [isIconActive, setIsIconActive] = useState(false);
 
-  const taskCompleted = () => {
-    setIsIconActive(!isIconActive);
-  };
+  // const taskCompleted = () => {
+  //   setIsIconActive(!isIconActive);
+  // };
 
   return (
     <>
