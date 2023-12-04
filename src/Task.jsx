@@ -38,6 +38,7 @@ export default function Task({ tasks, deleteTask, taskCompleted }) {
               justifyContent="space-around"
               alignItems="center"
             >
+              {state == isIconActive ?  <Text as='s'>{title}</Text> :  <Text as='cite'>{title}</Text>}
               <Text m="2" fontSize="lg">
                 {title}{" "}
               </Text>
