@@ -7,27 +7,26 @@ import {
   Container,
   Text,
   Flex,
+  Icon
 } from "@chakra-ui/react";
 import { DeleteIcon, CheckIcon } from "@chakra-ui/icons";
 
 export default function List({ tasks, deleteTask, taskCompleted }) {
   return tasks.map((task) => {
     const { id, title, state } = task;
-
+  
     const [isIconActive, setIsIconActive] = useState(false);
+
 
     const taskCompleted = () => {
       setIsIconActive(!isIconActive);
+  
     };
 
     const stateTask = () =>{
-     if (state = true){
-      <Text as='s'>{title}</Text>
-     } else if(state = false){
-<Text as='del'>'${title}'</Text>
-     }
-    }
 
+    }
+  
     return (
       <Container>
         <Flex
@@ -44,10 +43,11 @@ export default function List({ tasks, deleteTask, taskCompleted }) {
           justifyContent="space-around"
           alignItems="center"
         >
-          <Text m="2" fontSize="lg">
-            {title}{" "}
 
+    <Text m="2" fontSize="lg">
+            {title}{" "}
           </Text>
+  
           <ButtonGroup>
             <IconButton
               onClick={() => taskCompleted(id)}
