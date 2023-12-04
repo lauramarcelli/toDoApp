@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import { Center, Box, Flex, Input, Select, Button } from "@chakra-ui/react";
 
-export default function AddingTasks({ setTask, tasks }) {
+export default function AddingTasks({ setTask, tasks}) {
   const randomId = () => self.crypto.randomUUID();
   //aca se guardan los valores de los input/
   const formik = useFormik({
