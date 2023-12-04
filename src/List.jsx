@@ -6,7 +6,7 @@ export default function List({tasks,deleteTask,taskCompleted}) {
 
   return (
     tasks.map((task) => {
-     const {id, title,estado} = task
+     const {id, title,state} = task
       return (
         <Container>
       <Flex

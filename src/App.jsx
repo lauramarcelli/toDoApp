@@ -28,9 +28,9 @@ function App() {
 
   console.log(tasks);
 
-  const taskCompletedState = (id, title, estado) => {
+  const taskCompleted = (id, title, state) => {
 
-    console.log(estado);
+    console.log(id);
   };
 
   const deleteTask = (id) => {
@@ -57,7 +57,7 @@ function App() {
             tasks={tasks}
             deleteTask={deleteTask}
             setTask={setTask}
-            taskCompletedState={taskCompletedState}
+            taskCompleted={taskCompleted}
           />
         </AbsoluteCenter>
       </Box>
