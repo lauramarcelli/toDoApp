@@ -7,6 +7,7 @@ import {
   Container,
   Text,
   Flex,
+  Icon
 } from "@chakra-ui/react";
 import { DeleteIcon, CheckIcon } from "@chakra-ui/icons";
 
