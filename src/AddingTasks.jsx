@@ -3,6 +3,23 @@ import { useFormik } from "formik";
 import { Center, Box, Flex, Input, Select, Button } from "@chakra-ui/react";
 
 export default function AddingTasks({ setTask, tasks}) {
+
+  const handleSelect = (e) => {
+     console.log(e.target.value)
+ if(e.target.value == "Completas"){
+   const filterCompleted = tasks.filter((task) => task.estado == true);
+   console.log(filterCompleted)
+   return filterCompleted
+ } else if(e.target.value == "Incompletas"){
+    const filterIncomplete = tasks.filter((task) => task.estado == false);
+    console.log(filterIncomplete)
+    return filterIncomplete
+  } else if (e.target.value == "Todas"){
+  return tasks
+  }
+  }
+
+
   const randomId = () => self.crypto.randomUUID();
   //aca se guardan los valores de los input/
   const formik = useFormik({
@@ -53,6 +70,7 @@ export default function AddingTasks({ setTask, tasks}) {
         <Box w="40%" h="100px" m="4" p="4">
           <h1>Seleccionar</h1>
           <Select
+          onChange={ handleSelect}
             bg="#fafafa"
             border="2px"
             borderColor="#cfb5a9"
