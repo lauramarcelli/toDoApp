@@ -13,9 +13,10 @@ import {
 export default function Task({ tasks, deleteTask, taskCompleted }) {
   const [isIconActive, setIsIconActive] = useState(false);
 
-  // const taskCompleted = () => {
-  //   setIsIconActive(!isIconActive);
-  // };
+  const handleCompleted = () =>{
+   taskCompleted();
+   setIsIconActive(!isIconActive);
+  }
 
   return (
     <>
@@ -44,8 +45,8 @@ export default function Task({ tasks, deleteTask, taskCompleted }) {
               <ButtonGroup>
                 <IconButton
                   onClick={() => {
-                    setIsIconActive(!isIconActive);
-                    taskCompleted(id, title, state);
+                    handleCompleted()
+
                   }}
                   border="2px"
                   borderColor="#cfb5a9"

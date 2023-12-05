@@ -31,6 +31,9 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(taskFilter));
   };
 
+  const taskCompleted = () => {
+    };
+
   return (
     <>
       <Box
