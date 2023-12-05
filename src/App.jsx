@@ -12,15 +12,15 @@ function App() {
     JSON.parse(localStorage.getItem("tasks")) || []
   );
 
-  const onSubmit = (title, e) => {
-    e.preventDefault();
-    const task = {
-      title,
-    };
+  // const onSubmit = (title, e) => {
+  //   e.preventDefault();
+  //   const task = {
+  //     title,
+  //   };
 
-    localStorage.setItem("tasks", JSON.stringify([...tasks, task]));
-    setTask([...tasks, task]);
-  };
+  //   localStorage.setItem("tasks", JSON.stringify([...tasks, task]));
+  //   setTask([...tasks, task]);
+  // };
 
   console.log(tasks);
 
@@ -29,6 +29,7 @@ function App() {
     const taskFilter = tasks.filter((task) => task.id !== id);
     console.log(taskFilter);
     localStorage.setItem("tasks", JSON.stringify(taskFilter));
+    setTask(taskFilter);
   };
 
   const taskCompleted = () => {
