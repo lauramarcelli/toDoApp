@@ -12,10 +12,13 @@ import {
 
 export default function Task({ id, title, state, deleteTask, taskCompleted }) {
   const [isIconActive, setIsIconActive] = useState(false);
+  const [showStrikethrough, setShowStrikethrough] = useState(false);
+
 
   const handleCompleted = () =>{
    taskCompleted();
    setIsIconActive(!isIconActive);
+   setShowStrikethrough(!showStrikethrough);
   }
 
   return (
@@ -34,17 +37,16 @@ export default function Task({ id, title, state, deleteTask, taskCompleted }) {
         justifyContent="space-around"
         alignItems="center"
       >
-        <Text m="2" fontSize="lg">
+        <Text textDecoration={showStrikethrough ? "line-through" : "none"} m="2" fontSize="lg">
           {title}{" "}
         </Text>
         <ButtonGroup>
           <IconButton
             onClick={() => {
               handleCompleted()
-
             }}
             border="2px"
-            borderColor="#cfb5a9"
+            borderColor={isIconActive ? "#98b8a4" : "#cfb5a9"}
             aria-label="Search database"
             icon={
               isIconActive ? (
@@ -53,14 +55,12 @@ export default function Task({ id, title, state, deleteTask, taskCompleted }) {
                 <Icon as={CheckIcon} />
               )
             }
-            colorScheme={isIconActive ? "green" : "gray"}
+            bg={isIconActive ? "#98b8a4" : "#cfb5a9"}
           />
-          {isIconActive && <p>Mostra este mensaje</p>}
-
           <IconButton
             border="2px"
             borderColor="#cfb5a9"
-            color="#6e8696"
+            bg="#cfb5a9"
             aria-label="Search database"
             icon={<DeleteIcon />}
             onClick={() => deleteTask(id)}
