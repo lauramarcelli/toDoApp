@@ -1,40 +1,39 @@
 import Header from "./Header";
 import AddingTasks from "./AddingTasks";
-import List from "./List";
 import Task from "./Task";
-import { Box, Text, Center, Circle, AbsoluteCenter } from "@chakra-ui/react";
+import List from "./ListOfTasks";
+import { Box, AbsoluteCenter } from "@chakra-ui/react";
 import Flower from "./assets/rm428-0025.jpg";
 import { useState } from "react";
-import { PhoneIcon, AddIcon, WarningIcon } from "@chakra-ui/icons";
+
 
 function App() {
   const [tasks, setTask] = useState(
-    JSON.parse(localStorage.getItem("tasks")) || ""
+    JSON.parse(localStorage.getItem("tasks")) || []
   );
 
-  const onSubmit = (title, e) => {
-    e.preventDefault();
-    const task = {
-      title,
-    };
+  // const onSubmit = (title, e) => {
+  //   e.preventDefault();
+  //   const task = {
+  //     title,
+  //   };
 
-    localStorage.setItem("tasks", JSON.stringify([...tasks, task]));
-    setTask([...tasks, task]);
-  };
+  //   localStorage.setItem("tasks", JSON.stringify([...tasks, task]));
+  //   setTask([...tasks, task]);
+  // };
 
   console.log(tasks);
-
-  const taskCompleted = (id, title, state) => {
-    
-    console.log(state);
-  };
 
   const deleteTask = (id) => {
     console.log(id);
     const taskFilter = tasks.filter((task) => task.id !== id);
     console.log(taskFilter);
     localStorage.setItem("tasks", JSON.stringify(taskFilter));
+    setTask(taskFilter);
   };
+
+  const taskCompleted = () => {
+    };
 
   return (
     <>
