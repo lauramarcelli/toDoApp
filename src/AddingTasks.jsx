@@ -3,12 +3,13 @@ import { useFormik } from "formik";
 import { Center, Box, Flex, Input, Select, Button } from "@chakra-ui/react";
 
 export default function AddingTasks({ setTask, tasks }) {
+
+
   const randomId = () => self.crypto.randomUUID();
-  //aca se guardan los valores de los input/
+
   const formik = useFormik({
     initialValues: {
       title: "",
-      id: randomId(),
       state: false,
     },
 
@@ -16,16 +17,18 @@ export default function AddingTasks({ setTask, tasks }) {
       const errors = {};
       if (!values.title) {
         errors.title = "Required";
-      } else if (values.title.length > 15 || values.title.length < 4) {
-        errors.title = "El titulo debe ser entre 4 y 15 caracteres";
+      } else if (values.title.length > 25 || values.title.length < 4) {
+        errors.title = "El titulo debe ser entre 4 y 25 caracteres";
       }
 
-      return errors;
+      return errors;sd
     },
     onSubmit: (values) => {
       localStorage.setItem("tasks", JSON.stringify([...tasks, values]));
-      setTask([...tasks, values]);
+      setTask([...tasks, {...values, id: randomId()}]);
+      formik.resetForm()
     },
+    
   });
 
   return (
@@ -50,7 +53,7 @@ export default function AddingTasks({ setTask, tasks }) {
           {formik.errors.title ? <div>{formik.errors.title}</div> : null}
         </Box>
 
-        <Box w="40%" h="100px" m="4" p="4">
+        {/* <Box w="40%" h="100px" m="4" p="4">
           <h1>Seleccionar</h1>
           <Select
             bg="#fafafa"
@@ -62,7 +65,7 @@ export default function AddingTasks({ setTask, tasks }) {
             <option value="Completas">Completas</option>
             <option value="Incompletas">Incompletas</option>
           </Select>
-        </Box>
+        </Box> */}
       </Flex>
       <Center>
         <Button mb="6" type="submit" bg="#cfb5a9" variant="solid" w="150px">

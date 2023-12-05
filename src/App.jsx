@@ -49,6 +49,7 @@ function App() {
         <AbsoluteCenter
           borderRadius="8"
           padding="10px"
+          w="800px"
           axis="both"
           bg="#eddad1"
         >
