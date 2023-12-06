@@ -5,8 +5,6 @@ import { Center, Box, Flex, Input, Select, Button } from "@chakra-ui/react";
 export default function AddingTasks({ setTask, tasks }) {
 
 
-  const randomId = () => self.crypto.randomUUID();
-
   const formik = useFormik({
     initialValues: {
       title: "",
@@ -25,11 +23,13 @@ export default function AddingTasks({ setTask, tasks }) {
     },
     onSubmit: (values) => {
       localStorage.setItem("tasks", JSON.stringify([...tasks, values]));
-      setTask([...tasks, {...values, id: randomId()}]);
-      formik.resetForm()
-    },
+      setTask([...tasks, { ...values, id: crypto.randomUUID() }]);
+      formik.resetForm();
+    },
     
   });
+
+  
 
   return (
     <form

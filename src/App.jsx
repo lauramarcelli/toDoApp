@@ -21,15 +21,15 @@ function App() {
     setTask(taskFilter);
   };
 
-  // const taskCompleted = (id) => {
-  //   console.log(id);
-  //   setTask((tasks) =>
-  //     tasks.map((task) =>
-  //       task.id === id ? { ...task, state: !task.state } : task
-  //     )
-  //   );
-  // };
-
+ 
+  const taskCompleted = (id) => {
+    setTask((tasks) =>
+      tasks.map((task) =>
+        task.id === id ? { ...task, state: !task.state } : task
+      )
+    );
+  };
+  
   return (
     <>
       <Box
