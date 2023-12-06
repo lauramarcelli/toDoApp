@@ -1,7 +1,7 @@
 import Header from "./Header";
 import AddingTasks from "./AddingTasks";
 import Task from "./Task";
-import List from "./ListOfTasks";
+import ListOfTask from "./ListOfTasks";
 import { Box, AbsoluteCenter } from "@chakra-ui/react";
 import Flower from "./assets/rm428-0025.jpg";
 import { useState } from "react";
@@ -49,12 +49,11 @@ function App() {
         <AbsoluteCenter
           borderRadius="8"
           padding="10px"
-          w="800px"
           axis="both"
           bg="#eddad1"
         >
           <AddingTasks setTask={setTask} tasks={tasks} />
-          <List
+          <ListOfTask
             tasks={tasks}
             deleteTask={deleteTask}
             setTask={setTask}

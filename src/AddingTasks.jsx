@@ -21,7 +21,7 @@ export default function AddingTasks({ setTask, tasks }) {
         errors.title = "El titulo debe ser entre 4 y 25 caracteres";
       }
 
-      return errors;sd
+      return errors;
     },
     onSubmit: (values) => {
       localStorage.setItem("tasks", JSON.stringify([...tasks, values]));
@@ -36,7 +36,7 @@ export default function AddingTasks({ setTask, tasks }) {
       onSubmit={formik.handleSubmit}
       style={{ display: "flex", flexDirection: "column" }}
     >
-      <Flex gap="20" justifyContent="center">
+      <Flex >
         <Box w="40%" h="100px" m="4" p="4">
           <label htmlFor="title">Tarea</label>
           <Input
