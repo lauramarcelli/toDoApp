@@ -6,13 +6,11 @@ import { Box, AbsoluteCenter } from "@chakra-ui/react";
 import Flower from "./assets/rm428-0025.jpg";
 import { useState } from "react";
 
-
 function App() {
   const [task, setTask] = useState(
     JSON.parse(localStorage.getItem("tasks")) || []
   );
 
-  
   console.log(task);
 
   const deleteTask = (id) => {
@@ -23,8 +21,14 @@ function App() {
     setTask(taskFilter);
   };
 
-  const taskCompleted = () => {
-    };
+  // const taskCompleted = (id) => {
+  //   console.log(id);
+  //   setTask((tasks) =>
+  //     tasks.map((task) =>
+  //       task.id === id ? { ...task, state: !task.state } : task
+  //     )
+  //   );
+  // };
 
   return (
     <>

@@ -10,16 +10,10 @@ import {
   Icon,
 } from "@chakra-ui/react";
 
-export default function Task({ id, title, state, deleteTask, taskCompleted }) {
+export default function Task({ id, title, tasks, state, deleteTask, taskCompleted }) {
   const [isIconActive, setIsIconActive] = useState(false);
   const [showStrikethrough, setShowStrikethrough] = useState(false);
   const [state, setState] = useState(state);
-
-  const handleCompleted = () => {
-    setIsIconActive(!isIconActive);
-    setShowStrikethrough(!showStrikethrough);
-    taskCompleted();
-  };
 
   const changeValue = (id) => {
     setState((tasks) =>
@@ -28,9 +22,18 @@ export default function Task({ id, title, state, deleteTask, taskCompleted }) {
       )
     );
   };
+  // localStorage.setItem("tasks", JSON.stringify(refreshState));
+  // setTask(refreshState);
+
+
+  const handleCompleted = (id) => {
+    setIsIconActive(!isIconActive);
+    setShowStrikethrough(!showStrikethrough);
+    taskCompleted(id);
+
+  };
 
   return (
-    {state.map((task) => (
     <Container key={id}>
       <Flex
         borderRadius="8"
@@ -55,9 +58,10 @@ export default function Task({ id, title, state, deleteTask, taskCompleted }) {
         </Text>
         <ButtonGroup>
           <IconButton
+          state={state}
             onClick={() => {
-              handleCompleted();
-              changeValue(task.id)
+              handleCompleted(id);
+              changeValue(id);
             }}
             border="2px"
             borderColor={isIconActive ? "#98b8a4" : "#cfb5a9"}
@@ -78,7 +82,13 @@ export default function Task({ id, title, state, deleteTask, taskCompleted }) {
         </ButtonGroup>
       </Flex>
     </Container>
-    ))
-    }
-  )
-}
+  );
+  }
+
+
+  
+
+
+
+ 
+
