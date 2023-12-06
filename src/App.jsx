@@ -32,8 +32,14 @@ function App() {
     setTask(taskFilter);
   };
 
-  const taskCompleted = () => {
-    };
+  // const taskCompleted = (id) => {
+  //    console.log(id)
+  //   setTask((tasks) =>
+  //   tasks.map((task) =>
+  //     task.id === id ? { ...task, state: !task.state } : task
+  //   )
+  //   )
+  //   };
 
   return (
     <>

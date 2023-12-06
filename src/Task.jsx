@@ -15,12 +15,6 @@ export default function Task({ id, title, state, deleteTask, taskCompleted }) {
   const [showStrikethrough, setShowStrikethrough] = useState(false);
   const [state, setState] = useState(false);
 
-  const handleCompleted = () => {
-    setIsIconActive(!isIconActive);
-    setShowStrikethrough(!showStrikethrough);
-    taskCompleted();
-  };
-
   const changeValue = (id) => {
     setState((tasks) =>
       tasks.map((task) =>
@@ -28,10 +22,18 @@ export default function Task({ id, title, state, deleteTask, taskCompleted }) {
       )
     );
   };
+  const handleCompleted = (id) => {
+    setIsIconActive(!isIconActive);
+    setShowStrikethrough(!showStrikethrough);
+    taskCompleted(id);
+    
+    // changeValue(id)
+  };
+
 
   return (
-    {state.map((task) => (
-    <Container key={task.id}>
+   {state.map((task) => (
+    <Container key= {task.id}  >
       <Flex
         borderRadius="8"
         border="2px"
@@ -56,8 +58,8 @@ export default function Task({ id, title, state, deleteTask, taskCompleted }) {
         <ButtonGroup>
           <IconButton
             onClick={() => {
-              handleCompleted();
-              changeValue(task.id)
+              handleCompleted(id);
+         changeValue(id)
             }}
             border="2px"
             borderColor={isIconActive ? "#98b8a4" : "#cfb5a9"}
@@ -78,7 +80,7 @@ export default function Task({ id, title, state, deleteTask, taskCompleted }) {
         </ButtonGroup>
       </Flex>
     </Container>
-    ))
+    )
     }
-  )
+   )
 }
