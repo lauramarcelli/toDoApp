@@ -3,8 +3,6 @@ import { useFormik } from "formik";
 import { Center, Box, Flex, Input, Select, Button } from "@chakra-ui/react";
 
 export default function AddingTasks({ setTask, tasks }) {
-
-
   const formik = useFormik({
     initialValues: {
       title: "",
@@ -21,22 +19,23 @@ export default function AddingTasks({ setTask, tasks }) {
 
       return errors;
     },
+
     onSubmit: (values) => {
-      localStorage.setItem("tasks", JSON.stringify([...tasks, values]));
+      localStorage.setItem(
+        "tasks",
+        JSON.stringify([...tasks, { ...values, id: crypto.randomUUID() }])
+      );
       setTask([...tasks, { ...values, id: crypto.randomUUID() }]);
       formik.resetForm();
-    },
-    
+    },
   });
-
-  
 
   return (
     <form
       onSubmit={formik.handleSubmit}
       style={{ display: "flex", flexDirection: "column" }}
     >
-      <Flex >
+      <Flex>
         <Box w="40%" h="100px" m="4" p="4">
           <label htmlFor="title">Tarea</label>
           <Input
