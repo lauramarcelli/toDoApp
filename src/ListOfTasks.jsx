@@ -49,7 +49,7 @@ export default function List({ tasks, deleteTask, taskCompleted, setTask }) {
             id={id}
             title={title}
             state={state}
-            // taskCompleted={taskCompleted}
+            taskCompleted={taskCompleted}
             deleteTask={deleteTask}
           />
         );

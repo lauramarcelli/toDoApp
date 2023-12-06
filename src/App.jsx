@@ -21,16 +21,17 @@ function App() {
     setTask(taskFilter);
   };
 
- 
   const taskCompleted = (id) => {
-    setTask((tasks) =>
-      tasks.map((task) =>
+    console.log(id)
+    const complete =
+         task.map((task) =>
         task.id === id ? { ...task, state: !task.state } : task
       )
-    );
+    localStorage.setItem("tasks", JSON.stringify(complete));
+    setTask(complete)
+    console.log(task)
   };
-  
-  
+
   return (
     <>
       <Box

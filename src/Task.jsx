@@ -13,13 +13,10 @@ import {
 export default function Task({ id, title, state, deleteTask, taskCompleted}) {
   const [isIconActive, setIsIconActive] = useState(false);
   const [showStrikethrough, setShowStrikethrough] = useState(false);
-  const [task, setTask] = useState(state)
 
   const handleCompleted = (id) => {
     setIsIconActive(!isIconActive);
-    setShowStrikethrough(!showStrikethrough);
-    taskCompleted(id);
-
+    setShowStrikethrough(!showStrikethrough)
   };
 
   
@@ -48,7 +45,6 @@ export default function Task({ id, title, state, deleteTask, taskCompleted}) {
         </Text>
         <ButtonGroup>
           <IconButton
-           state={task.toString()}
             onClick={() => {
               handleCompleted(id);
               taskCompleted(id);
