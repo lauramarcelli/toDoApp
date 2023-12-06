@@ -22,8 +22,6 @@ export default function Task({ id, title, state, deleteTask, taskCompleted}) {
 
   };
 
-
-
   
   return (
     <Container key={id}>
@@ -50,7 +48,7 @@ export default function Task({ id, title, state, deleteTask, taskCompleted}) {
         </Text>
         <ButtonGroup>
           <IconButton
-          state={task.toString()}
+           state={task.toString()}
             onClick={() => {
               handleCompleted(id);
               taskCompleted(id);
