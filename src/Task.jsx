@@ -13,7 +13,7 @@ import {
 export default function Task({ id, title, state, deleteTask, taskCompleted }) {
   const [isIconActive, setIsIconActive] = useState(false);
   const [showStrikethrough, setShowStrikethrough] = useState(false);
-  const [state, setState] = useState(false);
+  const [state, setState] = useState(state);
 
   const handleCompleted = () => {
     setIsIconActive(!isIconActive);
@@ -31,7 +31,7 @@ export default function Task({ id, title, state, deleteTask, taskCompleted }) {
 
   return (
     {state.map((task) => (
-    <Container key={task.id}>
+    <Container key={id}>
       <Flex
         borderRadius="8"
         border="2px"

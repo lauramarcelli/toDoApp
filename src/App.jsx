@@ -8,25 +8,16 @@ import { useState } from "react";
 
 
 function App() {
-  const [tasks, setTask] = useState(
+  const [task, setTask] = useState(
     JSON.parse(localStorage.getItem("tasks")) || []
   );
 
-  // const onSubmit = (title, e) => {
-  //   e.preventDefault();
-  //   const task = {
-  //     title,
-  //   };
-
-  //   localStorage.setItem("tasks", JSON.stringify([...tasks, task]));
-  //   setTask([...tasks, task]);
-  // };
-
-  console.log(tasks);
+  
+  console.log(task);
 
   const deleteTask = (id) => {
     console.log(id);
-    const taskFilter = tasks.filter((task) => task.id !== id);
+    const taskFilter = task.filter((task) => task.id !== id);
     console.log(taskFilter);
     localStorage.setItem("tasks", JSON.stringify(taskFilter));
     setTask(taskFilter);
@@ -52,9 +43,9 @@ function App() {
           axis="both"
           bg="#eddad1"
         >
-          <AddingTasks setTask={setTask} tasks={tasks} />
+          <AddingTasks setTask={setTask} tasks={task} />
           <ListOfTask
-            tasks={tasks}
+            tasks={task}
             deleteTask={deleteTask}
             setTask={setTask}
             taskCompleted={taskCompleted}
