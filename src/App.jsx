@@ -1,21 +1,16 @@
 import Header from "./Header";
 import AddingTasks from "./AddingTasks";
-import List from "./List";
-import { Box, Text, Center, Circle, AbsoluteCenter } from "@chakra-ui/react";
+import ListOfTask from "./ListOfTasks";
+import { Box, AbsoluteCenter, Grid, GridItem } from "@chakra-ui/react";
 import Flower from "./assets/rm428-0025.jpg";
 import { useState } from "react";
-import { PhoneIcon, AddIcon, WarningIcon } from "@chakra-ui/icons";
-
-
 
 function App() {
-
- 
-
-  const [tasks, setTask] = useState(
-    JSON.parse(localStorage.getItem("tasks")) || ""
+  const [task, setTask] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || []
   );
 
+<<<<<<< HEAD
   const onSubmit = (title, e) => {
     e.preventDefault();
     const task = {
@@ -32,12 +27,24 @@ function App() {
 
     console.log(id);
   };
+=======
+  console.log(task);
+>>>>>>> list
 
   const deleteTask = (id) => {
     console.log(id);
-    const taskFilter = tasks.filter((task) => task.id !== id);
+    const taskFilter = task.filter((task) => task.id !== id);
     console.log(taskFilter);
     localStorage.setItem("tasks", JSON.stringify(taskFilter));
+    setTask(taskFilter);
+  };
+
+  const taskCompleted = (id) => {
+    const complete = task.map((task) =>
+      task.id === id ? { ...task, state: !task.state } : task
+    );
+    localStorage.setItem("tasks", JSON.stringify(complete));
+    setTask(complete);
   };
 
   return (
@@ -48,22 +55,37 @@ function App() {
         bgPosition="center"
         bgSize="cover"
         bgRepeat="no-repeat"
-        position='relative' 
+        position="relative"
       >
         <Header />
-        <AbsoluteCenter borderRadius="8"  padding="10px" axis='both' bg="#eddad1">
-          <AddingTasks setTask={setTask} tasks={tasks} />
-          <List
-            tasks={tasks}
-            deleteTask={deleteTask}
-            setTask={setTask}
-            taskCompleted={taskCompleted}
-          />
+        <AbsoluteCenter
+          borderRadius="8"
+          padding="10px"
+          axis="both"
+          bg="#eddad1"
+        >
+          <Grid templateColumns="repeat(2, 1fr)" gap={6}>
+            <GridItem colSpan={1}>
+              <Box>
+                <AddingTasks setTask={setTask} tasks={task} />
+              </Box>
+            </GridItem>
+
+            <GridItem colSpan={1}>
+              <Box>
+                <ListOfTask
+                tasks={task}
+                  deleteTask={deleteTask}
+                  setTask={setTask}
+                  taskCompleted={taskCompleted}
+                />
+              </Box>
+            </GridItem>
+          </Grid>
         </AbsoluteCenter>
       </Box>
     </>
   );
 }
-
 
 export default App;

@@ -10,6 +10,7 @@ const  fonts = {
   body: `'Montserrat', sans-serif`
 }
 
+
 const theme = extendTheme({ fonts })
 
 ReactDOM.createRoot(document.getElementById("root")).render(
