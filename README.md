@@ -8,10 +8,6 @@ The objective of this project is to create an app that displays your to do daily
     <img src="./src/assets/imagen-3.png" style="width: 60%;" alt=""/>
 </p>
 
-## Resource
-
--   CSS Framework -> [Chakra UI](https://chakra-ui.com/)
-
 ## Structure of the application
 
 ### Parts
@@ -50,6 +46,10 @@ We practice React and Chakra UI with the project mentioned before
 
 -   CSS Framework -> [Material UI](https://mui.com/material-ui/)
 
+
+
 ### Many thanks to Guille Montaña!!
+
+
 
 <p> Project made by Lorena Avalos and Laura Marcelli for the ADA 18va comission </p>
