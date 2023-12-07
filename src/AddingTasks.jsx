@@ -1,6 +1,6 @@
 import React from "react";
 import { useFormik } from "formik";
-import { Center, Box, Flex, Input, Select, Button } from "@chakra-ui/react";
+import { Center, Box, Flex, Input, Button, AbsoluteCenter } from "@chakra-ui/react";
 
 export default function AddingTasks({ setTask, tasks }) {
   const formik = useFormik({
@@ -36,7 +36,7 @@ export default function AddingTasks({ setTask, tasks }) {
       style={{ display: "flex", flexDirection: "column" }}
     >
       <Flex>
-        <Box w="40%" h="100px" m="4" p="4">
+        <Box w="60%" h="100px" m="4" p="4" mb="7">
           <label htmlFor="title">Tarea</label>
           <Input
             bg="#fafafa"
@@ -51,23 +51,9 @@ export default function AddingTasks({ setTask, tasks }) {
           />
           {formik.errors.title ? <div>{formik.errors.title}</div> : null}
         </Box>
-
-        {/* <Box w="40%" h="100px" m="4" p="4">
-          <h1>Seleccionar</h1>
-          <Select
-            bg="#fafafa"
-            border="2px"
-            borderColor="#cfb5a9"
-            placeholder="Ingresa una tarea"
-          >
-            <option value="Todas">Todas</option>
-            <option value="Completas">Completas</option>
-            <option value="Incompletas">Incompletas</option>
-          </Select>
-        </Box> */}
       </Flex>
       <Center>
-        <Button mb="6" type="submit" bg="#cfb5a9" variant="solid" w="150px">
+        <Button ml="300" type="submit" bg="#cfb5a9" variant="solid" w="150px">
           Send
         </Button>
       </Center>

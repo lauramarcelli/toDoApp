@@ -1,8 +1,7 @@
 import Header from "./Header";
 import AddingTasks from "./AddingTasks";
-import Task from "./Task";
 import ListOfTask from "./ListOfTasks";
-import { Box, AbsoluteCenter } from "@chakra-ui/react";
+import { Box, AbsoluteCenter, Grid, GridItem } from "@chakra-ui/react";
 import Flower from "./assets/rm428-0025.jpg";
 import { useState } from "react";
 
@@ -22,14 +21,11 @@ function App() {
   };
 
   const taskCompleted = (id) => {
-    console.log(id)
-    const complete =
-         task.map((task) =>
-        task.id === id ? { ...task, state: !task.state } : task
-      )
+    const complete = task.map((task) =>
+      task.id === id ? { ...task, state: !task.state } : task
+    );
     localStorage.setItem("tasks", JSON.stringify(complete));
-    setTask(complete)
-    console.log(task)
+    setTask(complete);
   };
 
   return (
@@ -49,13 +45,24 @@ function App() {
           axis="both"
           bg="#eddad1"
         >
-          <AddingTasks setTask={setTask} tasks={task} />
-          <ListOfTask
-            tasks={task}
-            deleteTask={deleteTask}
-            setTask={setTask}
-            taskCompleted={taskCompleted}
-          />
+          <Grid templateColumns="repeat(2, 1fr)" gap={6}>
+            <GridItem colSpan={1}>
+              <Box>
+                <AddingTasks setTask={setTask} tasks={task} />
+              </Box>
+            </GridItem>
+
+            <GridItem colSpan={1}>
+              <Box>
+                <ListOfTask
+                tasks={task}
+                  deleteTask={deleteTask}
+                  setTask={setTask}
+                  taskCompleted={taskCompleted}
+                />
+              </Box>
+            </GridItem>
+          </Grid>
         </AbsoluteCenter>
       </Box>
     </>

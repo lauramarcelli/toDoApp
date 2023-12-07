@@ -1,12 +1,9 @@
 import React from "react";
 import {
-  Center,
   Box,
+  Center,
   Flex,
-  Input,
   Select,
-  Button,
-  filter,
 } from "@chakra-ui/react";
 import Task from "./Task";
 
@@ -25,22 +22,22 @@ export default function List({ tasks, deleteTask, taskCompleted, setTask }) {
 
   return (
     <>
-      <Flex>
-        <Box w="40%" h="100px" m="4" p="4">
-          <h1>Seleccionar</h1>
+      <Center>
+        <Box w="100%" h="100px" m="4" p="4">
+          <h1>Estado</h1>
           <Select
             onChange={(e) => handleSelect(e)}
             bg="#fafafa"
             border="2px"
             borderColor="#cfb5a9"
-            placeholder="Ingresa una tarea"
+            placeholder="Selecciona su estado"
           >
             <option value="all">Todas</option>
             <option value="true">Completas</option>
             <option value="false">Incompletas</option>
           </Select>
         </Box>
-      </Flex>
+      </Center>
       {tasks.map((task) => {
         const { id, title, state } = task;
         return (
@@ -51,6 +48,8 @@ export default function List({ tasks, deleteTask, taskCompleted, setTask }) {
             state={state}
             taskCompleted={taskCompleted}
             deleteTask={deleteTask}
+            setTask={setTask}
+            task={task}
           />
         );
       })}

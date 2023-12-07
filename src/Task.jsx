@@ -10,16 +10,22 @@ import {
   Icon,
 } from "@chakra-ui/react";
 
-export default function Task({ id, title, state, deleteTask, taskCompleted}) {
+export default function Task({
+  id,
+  title,
+  deleteTask,
+  taskCompleted,
+  task,
+}) {
   const [isIconActive, setIsIconActive] = useState(false);
   const [showStrikethrough, setShowStrikethrough] = useState(false);
 
-  const handleCompleted = (id) => {
+  const handleCompleted = () => {
     setIsIconActive(!isIconActive);
-    setShowStrikethrough(!showStrikethrough)
+    setShowStrikethrough(!showStrikethrough);
+
   };
 
-  
   return (
     <Container key={id}>
       <Flex
@@ -37,7 +43,7 @@ export default function Task({ id, title, state, deleteTask, taskCompleted}) {
         alignItems="center"
       >
         <Text
-          textDecoration={showStrikethrough ? "line-through" : "none"}
+          textDecoration={task.state ? "line-through" : "none"}
           m="2"
           fontSize="lg"
         >
@@ -50,12 +56,12 @@ export default function Task({ id, title, state, deleteTask, taskCompleted}) {
               taskCompleted(id);
             }}
             border="2px"
-            borderColor={isIconActive ? "#98b8a4" : "#cfb5a9"}
+            borderColor={task.state ? "#98b8a4" : "#cfb5a9"}
             aria-label="Search database"
             icon={
-              isIconActive ? <Icon as={CheckIcon} /> : <Icon as={CheckIcon} />
+              task.state ? <Icon as={CheckIcon} /> : <Icon as={CheckIcon} />
             }
-            bg={isIconActive ? "#98b8a4" : "#cfb5a9"}
+            bg={task.state ? "#98b8a4" : "#cfb5a9"}
           />
           <IconButton
             border="2px"
@@ -69,12 +75,4 @@ export default function Task({ id, title, state, deleteTask, taskCompleted}) {
       </Flex>
     </Container>
   );
-  }
-
-
-  
-
-
-
- 
-
+}
