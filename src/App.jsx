@@ -10,26 +10,7 @@ function App() {
     JSON.parse(localStorage.getItem("tasks")) || []
   );
 
-<<<<<<< HEAD
-  const onSubmit = (title, e) => {
-    e.preventDefault();
-    const task = {
-      title,
-    };
-
-    localStorage.setItem("tasks", JSON.stringify([...tasks, task]));
-    setTask([...tasks, task]);
-  };
-
-  console.log(tasks);
-
-  const taskCompleted = (id, title, state) => {
-
-    console.log(id);
-  };
-=======
   console.log(task);
->>>>>>> list
 
   const deleteTask = (id) => {
     console.log(id);
@@ -64,7 +45,7 @@ function App() {
           axis="both"
           bg="#eddad1"
         >
-          <Grid templateColumns="repeat(2, 1fr)" gap={6}>
+          <Grid templateColumns="repeat(2, 1fr)">
             <GridItem colSpan={1}>
               <Box>
                 <AddingTasks setTask={setTask} tasks={task} />

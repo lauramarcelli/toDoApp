@@ -36,7 +36,7 @@ export default function AddingTasks({ setTask, tasks }) {
       style={{ display: "flex", flexDirection: "column" }}
     >
       <Flex>
-        <Box w="60%" h="100px" m="4" p="4" mb="7">
+        <Box w="50%" h="100px" m="4" p="4" mb="7">
           <label htmlFor="title">Tarea</label>
           <Input
             bg="#fafafa"
@@ -53,7 +53,7 @@ export default function AddingTasks({ setTask, tasks }) {
         </Box>
       </Flex>
       <Center>
-        <Button ml="300" type="submit" bg="#cfb5a9" variant="solid" w="150px">
+        <Button ml="280" type="submit" bg="#cfb5a9" variant="solid" w="150px" mb="10">
           Send
         </Button>
       </Center>
