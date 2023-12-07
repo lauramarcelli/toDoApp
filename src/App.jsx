@@ -1,7 +1,7 @@
 import Header from "./Header";
-import AddingTasks from "./AddingTasks";
+import AddingInputs from "./AddingInputs";
 import ListOfTask from "./ListOfTasks";
-import { Box, AbsoluteCenter, Grid, GridItem } from "@chakra-ui/react";
+import { Box, AbsoluteCenter } from "@chakra-ui/react";
 import Flower from "./assets/rm428-0025.jpg";
 import { useState } from "react";
 
@@ -45,28 +45,18 @@ function App() {
           axis="both"
           bg="#eddad1"
         >
-          <Grid templateColumns="repeat(2, 1fr)">
-            <GridItem colSpan={1}>
-              <Box>
-                <AddingTasks setTask={setTask} tasks={task} />
-              </Box>
-            </GridItem>
-
-            <GridItem colSpan={1}>
-              <Box>
-                <ListOfTask
-                tasks={task}
-                  deleteTask={deleteTask}
-                  setTask={setTask}
-                  taskCompleted={taskCompleted}
-                />
-              </Box>
-            </GridItem>
-          </Grid>
+          <AddingInputs setTask={setTask} tasks={task} />
+          <ListOfTask
+            tasks={task}
+            deleteTask={deleteTask}
+            setTask={setTask}
+            taskCompleted={taskCompleted}
+          />
         </AbsoluteCenter>
       </Box>
     </>
   );
+
 }
 
 export default App;
