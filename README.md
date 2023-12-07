@@ -44,7 +44,7 @@ Finally here you could visualize your task, and be able to checked when you done
 
 We practice React and Chakra UI with the project mentioned before
 
--   CSS Framework -> [Material UI](https://mui.com/material-ui/)
+-   CSS Framework -> [Chakra-Iu] (https://chakra-ui.com/)
 
 
 
